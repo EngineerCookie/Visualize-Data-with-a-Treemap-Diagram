@@ -42,12 +42,35 @@ body {
     padding-top: 1.5rem;
 }
 
+.source-link {
+    list-style: none;
+}
+
+.source-link.active {
+    background-color:lightgray;
+    padding: 5px;
+}
+
+.source-link>a {
+    text-decoration: none;
+}
+
+.source-link>a:visited {
+    color: inherit;
+}
 
 main {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 1.5rem;
+}
+
+@media (max-width: 1000px) {
+    main {
+        display: block;
+    }
 }
 
 .navbar,
@@ -60,7 +83,7 @@ h2,
 
 h1 {
     font-weight: var(--fw-bold);
-    font-size: var(--fs-title);
+    font-size: var(--fs-title)
 }
 
 h2 {

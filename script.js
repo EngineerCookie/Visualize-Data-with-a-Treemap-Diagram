@@ -27,14 +27,47 @@ let titleGame = 'Video Game Sales',
     descriptionMovie = 'Top 100 Highest Grossing Movies Grouped By Genre',
     descriptionKickStart = 'Top 100 Most Pledged Kickstarter Campaigns Grouped By Category';
 
-const sourceLink = document.querySelectorAll('[data-link]'),
-    sourceTitle = document.querySelector('#title'),
+const sourceTitle = document.querySelector('#title'),
     sourceDesc = document.querySelector('#description');
 
 //Default values
-sourceTitle.innerText = titleGame;
-sourceDesc.innerText = descriptionGame;
-let source = gameUrl; //<-- function for selecting source goes here
+let source = undefined; //<-- set by Source Selector
+
+//Source Selector
+(function () {
+    let navTarget = undefined;
+    let query = new URLSearchParams(location.search).get('data'); //?data=val
+    switch (query) {
+        case 'game':
+            navTarget = document.querySelector(`[data-link=${query}]`);
+            navTarget.classList.add('active');
+            sourceTitle.textContent = titleGame;
+            sourceDesc.textContent = descriptionGame;
+            source = gameUrl;
+            break;
+        case 'movie':
+            navTarget = document.querySelector(`[data-link=${query}]`);
+            navTarget.classList.add('active');
+            sourceTitle.textContent = titleMovie;
+            sourceDesc.textContent = descriptionMovie;
+            source = movieUrl;
+            break;
+        case 'kickstart':
+            navTarget = document.querySelector(`[data-link=${query}]`);
+            navTarget.classList.add('active');
+            sourceTitle.textContent = titleKickStart;
+            sourceDesc.textContent = descriptionKickStart;
+            source = kickstartUrl;
+            break;
+        default:
+            navTarget = document.querySelector(`[data-link=game]`);
+            navTarget.classList.add('active');
+            sourceTitle.textContent = titleGame;
+            sourceDesc.textContent = descriptionGame;
+            source = gameUrl;
+    }
+})()
+
 let data = await getData(source);
 
 /*################

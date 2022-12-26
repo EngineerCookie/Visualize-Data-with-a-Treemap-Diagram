@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Visualize Data with a Treemap Diagram</title>
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js" defer></script>
@@ -13,15 +13,13 @@
 </head>
 
 <body>
-    <!-- could not get the source change working...
     <nav>
         <ul class="navbar">
-            <li data-link="game">link1</li>
-            <li data-link="movie">link2</li>
-            <li data-link="kickstart">link3</li>
+            <li class="source-link" data-link="game"><a href="?data=game">Video Games</a></li>
+            <li class="source-link" data-link="movie"><a href="?data=movie">Movies</a></li>
+            <li class="source-link" data-link="kickstart"><a href="?data=kickstart">KickStarter</a></li>
         </ul>
     </nav>
-    -->
     <main>
         <h1 data-content id="title"></h1>
         <h2 data-content id="description"></h2>
